@@ -31,9 +31,22 @@ public class MarkdownParse {
         Path fileName = Path.of(args[0]);
         String content = Files.readString(fileName);
         ArrayList<String> links = getLinks(content);
-	    System.out.println(links);
+        ArrayList<String> newLinks = new ArrayList<String>();
+        String currLink = null;
 
+        if (links.size() == 0){
+            System.out.println("No links in this file!");
+        }
+        else{
+            // removes the space from any links
+            for(int i = 0; i < links.size() ; ++i){
+                currLink = links.get(i).replaceAll("\\s","");
+                newLinks.add(currLink);
+            }
+ 
+            System.out.println(newLinks);
 
-        System.out.println("hello");
+        }
+
     }
 }
