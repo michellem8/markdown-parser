@@ -16,9 +16,9 @@ public class MarkdownParse {
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            // if (openBracket == -1 || closeBracket == -1|| openParen == -1 || closeParen == -1){
-            //     break; // prevents infinite loop
-            // }
+            if (openBracket == -1 || closeBracket == -1|| openParen == -1 || closeParen == -1){
+                break; // prevents infinite loop
+            }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
         }
@@ -34,17 +34,19 @@ public class MarkdownParse {
         ArrayList<String> newLinks = new ArrayList<String>();
         String currLink = null;
 
-        
-        // removes the space from any links
-        for(int i = 0; i < links.size() ; ++i){
-            currLink = links.get(i).replaceAll("\\s","");
-            newLinks.add(currLink);
+        //gives message if there is no links
+        if (links.size() == 0){
+            System.out.println("No links in this file!");
+        }
+        else{
+            // removes the space from any links
+            for(int i = 0; i < links.size() ; ++i){
+                currLink = links.get(i).replaceAll("\\s","");
+                newLinks.add(currLink);
+            }
+            System.out.println(newLinks);
+
         }
         
- 
-        System.out.println(newLinks);
-
-    
-
     }
 }
