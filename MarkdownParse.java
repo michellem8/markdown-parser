@@ -35,18 +35,18 @@ public class MarkdownParse {
         String currLink = null;
 
         //gives message if there is no links
-        if (links.size() == 0){
-            System.out.println("No links in this file!");
-        }
-        else{
-            // removes the space from any links
-            for(int i = 0; i < links.size() ; ++i){
-                currLink = links.get(i).replaceAll("\\s","");
-                newLinks.add(currLink);
-            }
-            System.out.println(newLinks);
+        // // if (links.size() == 0){
+        // //     System.out.println("No links in this file!");
+        // // }
+        // // else{
+        // //     // removes the space from any links
+        // //     for(int i = 0; i < links.size() ; ++i){
+        // //         currLink = links.get(i).replaceAll("\\s","");
+        // //         newLinks.add(currLink);
+        // //     }
+        //     System.out.println(links);
 
-        }
+        // // }
         
     }
 }
